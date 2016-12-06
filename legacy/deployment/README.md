@@ -133,36 +133,36 @@ rbenv global 2.0.0-p357
 We are going to install nodenv for the deploy user
 
 ```bash
-git clone git://github.com/OiNutter/nodenv.git ~/.nodenv
+git clone https://github.com/nodenv/nodenv.git ~/.nodenv
 ```
 
 Add nodenv to your PATH. The second command adds shims and autocompletion:
 
 ```bash
-echo 'export PATH="$HOME/.nodenv/bin:$PATH"' >> /home/deploy/.bashrc
-echo 'export NODENV_ROOT="$HOME/.nodenv/"' >> /home/deploy/.bashrc
-echo 'eval "$(nodenv init -)"' >> /home/deploy/.bashrc
+echo 'export PATH="$HOME/.nodenv/bin:$PATH"' >> /home/deploy/.zshrc
+echo 'export NODENV_ROOT="$HOME/.nodenv/"' >> /home/deploy/.zshrc
+echo 'eval "$(nodenv init -)"' >> /home/deploy/.zshrc
 ```
 
 Now install node-build plugin
 
 ```bash
 mkdir -p ~/.nodenv/plugins
-git clone git://github.com/OiNutter/node-build.git ~/.nodenv/plugins/node-build
+git clone https://github.com/nodenv/node-build.git $(nodenv root)/plugins/node-build
 ```
 
 Reload the profile, install one or more nodes and then rehash to refresh the shims
 
 ```bash
 source ~/.bashrc
-nodenv install 0.10.24
+nodenv install 0.10.48
 nodenv rehash
 ```
 
 Set your new nodenv nodejs as the new system-wide default node for all users using nodenv
 
 ```bash
-nodenv global 0.10.24
+nodenv global 0.10.48
 ```
 
 ## Install bundler
